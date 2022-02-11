@@ -21,7 +21,7 @@ jobs:
       - name: Add version info
         run: echo "${{ github.event.head_commit.id }}" > src/main/resources/FDP_GIT_COMMIT_ID
       - name: Build
-        run: ./gradlew setupCiWorkspace && ./gradlew build
+        run: .chmod +x ./gradlew && /gradlew setupCiWorkspace && ./gradlew build
       - name: Rename build artifacts
         run: mv build/libs/FDPClient-2.0.0.jar build/libs/FDPClient-${{ github.event.head_commit.id }}.jar
       - name: Upload build artifacts
